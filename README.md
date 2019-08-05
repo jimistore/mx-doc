@@ -45,12 +45,12 @@ Header参数：
 
 | 名称    | 含义   |  类型  | 是否必填 | 备注            |
 | :----   | :----  | :----  | :--      | :-------------  |
-| appid |    应用唯一标识    |  varchar(15)  | Y | - |
+| appId |    应用唯一标识    |  varchar(15)  | Y | - |
 | timestamp |    时间戳    |  varchar(15)  | Y | 时区GMT+8以秒为单位的时间戳 |
 | sign    |    签名    |  varchar(15)  | Y | - |
 
 签名算法：
- > * step1：把所有参数（包括appid、secret、timestamp、body）的key和值拼成字符串放入到数组，得到 array = ['key2=value2','key1=value1']
+ > * step1：把所有参数（包括appId、secret、timestamp、body）的key和值拼成字符串放入到数组，得到 array = ['key2=value2','key1=value1']
  > * step2：把数组按照ascii码进行升序排序，得到 array = ['key1=value1','key2=value2']
  > * step3：把数组的元素用&拼成一个字符串，得到 source = 'key1=value1&key2=value2'
  > * step4：根据step3得到的source生成MD5加密值，并转成大写，生成签名。sign=toUpperCase(Md5(source))
@@ -79,7 +79,7 @@ Header参数：
 | -wifimac | 用户设备WiFi的物理地址 | varchar(20) | N | - |
 | -imei | 用户设备标识 | varchar(32) | N | 国际移动设备标识 |
 | -ip | 用户设备IP地址 | varchar(24) | N | - |
-| businessData | 信用数据 | {} | N | - |
+| creditData | 信用数据 | {} | N | - |
 | -source | 数据来源 | varchar(10) | N | self/outside，self为本单位产生，outside为外部数据源产生 |
 | -createTime | 下单时间 | varchar(10) | N | 以秒为单位的时间戳 |
 | -overdueTime | 逾期时间 | varchar(10) | N | 以秒为单位的时间戳 |
@@ -168,7 +168,7 @@ Header参数：
 | -wifimac | 用户设备WiFi的物理地址 | varchar(20) | N | - |
 | -imei | 用户设备标识 | varchar(32) | N | 国际移动设备标识 |
 | -ip | 用户设备IP地址 | varchar(24) | N | - |
-| businessData | 信用数据 | {} | N | - |
+| creditData | 信用数据 | {} | N | - |
 | -source | 数据来源 | varchar(10) | N | self/outside，self为本单位产生，outside为外部数据源产生 |
 | -createTime | 下单时间 | varchar(10) | N | 以秒为单位的时间戳 |
 | -overdueTime | 逾期时间 | varchar(10) | N | 以秒为单位的时间戳 |
@@ -217,7 +217,7 @@ Header参数：
             "price":"600000"
         },
         "extend":{
-        	"other":"xxxx"
+            "other":"xxxx"
         }
     }]
     
